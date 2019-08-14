@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TTLSW
+D TTL level RX-TX switch for Arduino ISCP/SERIAL Programmer
+$ENDCMP
+#
+#End Doc Library
