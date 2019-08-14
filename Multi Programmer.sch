@@ -4,38 +4,16 @@ EELAYER 26 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
-Sheet 1 1
+Sheet 1 2
 Title "Multi Programmer"
 Date "2019-08-10"
 Rev "A"
 Comp ""
-Comment1 "ICSP, Serial, AtMega328 (DIP + TQFP)"
+Comment1 "ICSP, Serial, AtMega328 (DIP + TQFP), ATTiny 84/85"
 Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MCU_Microchip_ATmega:ATmega328P-AU SK1
-U 1 1 5D4EE5D4
-P 1500 2400
-F 0 "SK1" H 1900 950 50  0000 C CNN
-F 1 "ATmega328P-AU" H 1100 950 50  0000 C CNN
-F 2 "Package_DIP:DIP-32_W15.24mm_Socket" H 1500 2400 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 1500 2400 50  0001 C CNN
-	1    1500 2400
-	1    0    0    -1  
-$EndComp
-$Comp
-L MCU_Microchip_ATmega:ATmega328P-PU SK2
-U 1 1 5D4EE693
-P 3150 2400
-F 0 "SK2" H 3650 950 50  0000 R CNN
-F 1 "ATmega328P-PU" H 3050 950 50  0000 R CNN
-F 2 "DTLib:DIP-28_Zif_Multi" H 3150 2400 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 3150 2400 50  0001 C CNN
-	1    3150 2400
-	-1   0    0    -1  
-$EndComp
 $Comp
 L Interface_USB:FT232RL U2
 U 1 1 5D4EE7E1
@@ -124,89 +102,6 @@ F 3 "" H 2800 6600 50  0001 C CNN
 	1    2800 6600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2100 1500 2550 1500
-Wire Wire Line
-	2100 1600 2550 1600
-Wire Wire Line
-	2100 1700 2550 1700
-Wire Wire Line
-	2100 1800 2550 1800
-Wire Wire Line
-	2100 1900 2550 1900
-Wire Wire Line
-	2100 2700 2550 2700
-Wire Wire Line
-	2100 2900 2550 2900
-Wire Wire Line
-	2100 3000 2550 3000
-$Comp
-L power:VCC #PWR02
-U 1 1 5D4F49C3
-P 2300 800
-F 0 "#PWR02" H 2300 650 50  0001 C CNN
-F 1 "VCC" H 2317 973 50  0000 C CNN
-F 2 "" H 2300 800 50  0001 C CNN
-F 3 "" H 2300 800 50  0001 C CNN
-	1    2300 800 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1500 900  1500 800 
-Wire Wire Line
-	1500 800  1600 800 
-Wire Wire Line
-	3150 800  3150 900 
-Connection ~ 1500 800 
-Wire Wire Line
-	3050 900  3050 800 
-Connection ~ 3050 800 
-Wire Wire Line
-	3050 800  3150 800 
-Wire Wire Line
-	1600 900  1600 800 
-Connection ~ 1600 800 
-Wire Wire Line
-	3750 1300 3750 1200
-Wire Wire Line
-	3750 800  3150 800 
-Connection ~ 3150 800 
-Wire Wire Line
-	900  1200 800  1200
-Wire Wire Line
-	800  800  1500 800 
-Text Label 2500 2900 2    50   ~ 0
-TXD_SER
-Text Label 2500 3000 2    50   ~ 0
-RXD_SER
-Text Label 2500 2700 2    50   ~ 0
-~SCK_RST
-Text Label 2450 1800 2    50   ~ 0
-S_XTAL1
-Text Label 2450 1900 2    50   ~ 0
-S_XTAL2
-NoConn ~ 900  1400
-NoConn ~ 900  1500
-Wire Wire Line
-	1500 3900 1500 4000
-Wire Wire Line
-	1500 4000 2300 4000
-Wire Wire Line
-	3150 4000 3150 3900
-$Comp
-L power:GND #PWR03
-U 1 1 5D4FB1C8
-P 2300 4000
-F 0 "#PWR03" H 2300 3750 50  0001 C CNN
-F 1 "GND" H 2305 3827 50  0000 C CNN
-F 2 "" H 2300 4000 50  0001 C CNN
-F 3 "" H 2300 4000 50  0001 C CNN
-	1    2300 4000
-	1    0    0    -1  
-$EndComp
-Connection ~ 2300 4000
-Wire Wire Line
-	2300 4000 3150 4000
 Text Label 1750 7400 2    50   ~ 0
 ~RST_ICSP
 Text Label 1750 7200 2    50   ~ 0
@@ -223,12 +118,6 @@ Wire Wire Line
 	1400 7300 1750 7300
 Wire Wire Line
 	1400 7400 1750 7400
-Text Label 2450 1700 2    50   ~ 0
-S_SCK
-Text Label 2450 1600 2    50   ~ 0
-S_MISO
-Text Label 2450 1500 2    50   ~ 0
-S_MOSI
 Text Label 2850 7400 2    50   ~ 0
 ~RST_ICSP
 Text Label 2850 7200 2    50   ~ 0
@@ -277,9 +166,6 @@ Wire Wire Line
 	4700 7300 5050 7300
 Wire Wire Line
 	4700 7400 5050 7400
-Connection ~ 2300 800 
-Text Notes 1950 4250 2    70   ~ 0
-PROGRAMMING SOCKETS
 Text Notes 2200 7850 2    70   ~ 0
 SPI PROGRAMMING HEADERS
 $Comp
@@ -884,75 +770,6 @@ F 3 "~" H 8800 2050 50  0001 C CNN
 $EndComp
 Text Label 10100 1500 0    50   ~ 0
 MODE_SW
-$Comp
-L Device:Crystal_Small Y2
-U 1 1 5D5D798A
-P 9750 2850
-F 0 "Y2" V 9704 2938 50  0000 L CNN
-F 1 "16MHz" V 9795 2938 50  0000 L CNN
-F 2 "Crystal:Crystal_HC18-U_Vertical" H 9750 2850 50  0001 C CNN
-F 3 "~" H 9750 2850 50  0001 C CNN
-	1    9750 2850
-	0    -1   1    0   
-$EndComp
-Wire Wire Line
-	9400 2950 9750 2950
-Connection ~ 9750 2950
-Wire Wire Line
-	9750 2950 9850 2950
-Wire Wire Line
-	9400 2750 9750 2750
-Connection ~ 9750 2750
-Wire Wire Line
-	9750 2750 9850 2750
-$Comp
-L Device:C_Small C11
-U 1 1 5D5D7996
-P 9950 2750
-F 0 "C11" V 10179 2750 50  0000 C CNN
-F 1 "22p" V 10088 2750 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9950 2750 50  0001 C CNN
-F 3 "~" H 9950 2750 50  0001 C CNN
-	1    9950 2750
-	0    1    -1   0   
-$EndComp
-$Comp
-L Device:C_Small C12
-U 1 1 5D5D799C
-P 9950 2950
-F 0 "C12" V 9813 2950 50  0000 C CNN
-F 1 "22p" V 9722 2950 50  0000 C CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9950 2950 50  0001 C CNN
-F 3 "~" H 9950 2950 50  0001 C CNN
-	1    9950 2950
-	0    1    -1   0   
-$EndComp
-Wire Wire Line
-	10050 2750 10350 2750
-Wire Wire Line
-	10350 2750 10350 2950
-Wire Wire Line
-	10350 2950 10050 2950
-$Comp
-L power:GND #PWR026
-U 1 1 5D5D79A5
-P 10350 2950
-F 0 "#PWR026" H 10350 2700 50  0001 C CNN
-F 1 "GND" H 10355 2777 50  0000 C CNN
-F 2 "" H 10350 2950 50  0001 C CNN
-F 3 "" H 10350 2950 50  0001 C CNN
-	1    10350 2950
-	1    0    0    -1  
-$EndComp
-Connection ~ 10350 2950
-Wire Wire Line
-	8800 2750 8400 2750
-Wire Wire Line
-	8800 2950 8400 2950
-Text Label 8450 2750 0    50   ~ 0
-S_XTAL1
-Text Label 8450 2950 0    50   ~ 0
-S_XTAL2
 Text Notes 1400 6300 2    70   ~ 0
 STATUS LEDS
 $Comp
@@ -1044,59 +861,6 @@ Wire Wire Line
 	8900 5500 8450 5500
 Wire Wire Line
 	8900 5600 8450 5600
-Wire Wire Line
-	800  1200 800  800 
-$Comp
-L Device:C_Small C1
-U 1 1 5D7C5268
-P 2150 900
-F 0 "C1" H 2050 850 50  0000 R CNN
-F 1 "100n" H 2100 950 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2150 900 50  0001 C CNN
-F 3 "~" H 2150 900 50  0001 C CNN
-	1    2150 900 
-	1    0    0    1   
-$EndComp
-$Comp
-L Device:C_Small C2
-U 1 1 5D7C53A8
-P 3750 1400
-F 0 "C2" H 3658 1354 50  0000 R CNN
-F 1 "100n" H 3658 1445 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3750 1400 50  0001 C CNN
-F 3 "~" H 3750 1400 50  0001 C CNN
-	1    3750 1400
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR07
-U 1 1 5D7C544F
-P 3750 1500
-F 0 "#PWR07" H 3750 1250 50  0001 C CNN
-F 1 "GND" H 3755 1327 50  0000 C CNN
-F 2 "" H 3750 1500 50  0001 C CNN
-F 3 "" H 3750 1500 50  0001 C CNN
-	1    3750 1500
-	1    0    0    -1  
-$EndComp
-Connection ~ 3750 1200
-Wire Wire Line
-	2300 800  2450 800 
-Wire Wire Line
-	3750 1200 3750 800 
-Wire Wire Line
-	1600 800  2150 800 
-$Comp
-L power:GND #PWR01
-U 1 1 5D858731
-P 2300 1050
-F 0 "#PWR01" H 2300 800 50  0001 C CNN
-F 1 "GND" H 2450 1000 50  0000 C CNN
-F 2 "" H 2300 1050 50  0001 C CNN
-F 3 "" H 2300 1050 50  0001 C CNN
-	1    2300 1050
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C_Small C5
 U 1 1 5D858B9C
@@ -1185,28 +949,6 @@ Wire Wire Line
 Connection ~ 5700 6050
 Wire Wire Line
 	5700 6050 5600 6050
-$Comp
-L Device:Jumper JP2
-U 1 1 5D5EAF9C
-P 9100 2950
-F 0 "JP2" H 9100 2850 50  0000 C CNN
-F 1 "Jumper" H 9350 2850 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9100 2950 50  0001 C CNN
-F 3 "~" H 9100 2950 50  0001 C CNN
-	1    9100 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP1
-U 1 1 5D5EAF1A
-P 9100 2750
-F 0 "JP1" H 9100 2900 50  0000 C CNN
-F 1 "Jumper" H 9350 2900 50  0001 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9100 2750 50  0001 C CNN
-F 3 "~" H 9100 2750 50  0001 C CNN
-	1    9100 2750
-	1    0    0    -1  
-$EndComp
 Text Label 5000 2050 0    50   ~ 0
 ~U2RESET
 Wire Wire Line
@@ -1579,12 +1321,8 @@ F 3 "~" H 10050 2100 50  0001 C CNN
 $EndComp
 Text Notes 6050 7850 2    70   ~ 0
 SERIAL HEADER
-Wire Notes Line
-	8300 2450 10500 2450
 Text Notes 9650 650  2    70   ~ 0
 MODE SWITCH DEBOUNCE
-Text Notes 9250 3250 2    70   ~ 0
-SOCKET CRYSTAL
 Wire Notes Line
 	650  500  650  7900
 Wire Notes Line
@@ -1666,32 +1404,6 @@ F 3 "" H 10300 1000 50  0001 C CNN
 	1    10300 1000
 	1    0    0    -1  
 $EndComp
-Connection ~ 2150 800 
-Wire Wire Line
-	2150 800  2300 800 
-$Comp
-L Device:C_Small C18
-U 1 1 5EA8AFCD
-P 2450 900
-F 0 "C18" H 2700 850 50  0000 R CNN
-F 1 "100n" H 2700 950 50  0000 R CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2450 900 50  0001 C CNN
-F 3 "~" H 2450 900 50  0001 C CNN
-	1    2450 900 
-	1    0    0    1   
-$EndComp
-Connection ~ 2450 800 
-Wire Wire Line
-	2450 800  3050 800 
-Wire Wire Line
-	2150 1000 2150 1050
-Wire Wire Line
-	2150 1050 2300 1050
-Wire Wire Line
-	2450 1000 2450 1050
-Wire Wire Line
-	2450 1050 2300 1050
-Connection ~ 2300 1050
 $Comp
 L Device:C_Small C19
 U 1 1 5EAAFA5C
@@ -1812,36 +1524,6 @@ F 3 "" H 4600 6800 50  0001 C CNN
 	1    4600 6800
 	1    0    0    -1  
 $EndComp
-NoConn ~ 2100 3100
-NoConn ~ 2100 3200
-NoConn ~ 2550 3200
-NoConn ~ 2550 3100
-NoConn ~ 2550 3300
-NoConn ~ 2550 3400
-NoConn ~ 2550 3500
-NoConn ~ 2550 3600
-NoConn ~ 2100 3600
-NoConn ~ 2100 3500
-NoConn ~ 2100 3400
-NoConn ~ 2100 3300
-NoConn ~ 2100 2600
-NoConn ~ 2100 2500
-NoConn ~ 2100 2400
-NoConn ~ 2100 2300
-NoConn ~ 2100 2200
-NoConn ~ 2100 2100
-NoConn ~ 2550 2100
-NoConn ~ 2550 2200
-NoConn ~ 2550 2300
-NoConn ~ 2550 2400
-NoConn ~ 2550 2500
-NoConn ~ 2550 2600
-NoConn ~ 2100 1200
-NoConn ~ 2100 1300
-NoConn ~ 2100 1400
-NoConn ~ 2550 1400
-NoConn ~ 2550 1300
-NoConn ~ 2550 1200
 Wire Wire Line
 	9400 3500 9400 3450
 Wire Wire Line
@@ -1999,4 +1681,10 @@ Wire Wire Line
 	5100 1350 5000 1350
 Wire Wire Line
 	5000 1350 5000 1400
+$Sheet
+S 1000 900  2700 3050
+U 5D5549B6
+F0 "Sockets" 50
+F1 "Sockets.sch" 50
+$EndSheet
 $EndSCHEMATC
