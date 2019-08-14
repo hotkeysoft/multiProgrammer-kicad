@@ -1,0 +1,90 @@
+;PALASM Design Description
+
+;---------------------------------- Declaration Segment ------------
+TITLE    TTL LEVEL RX-TX SWITCH FOR ARDUINO ISCP/SERIAL PROGRAMMER
+PATTERN  
+REVISION A
+AUTHOR   Dominic Thibodeau
+COMPANY  
+DATE     2019/08/10
+
+CHIP  ttlsw PALCE16V8
+
+;---------------------------------- PIN Declarations ---------------
+PIN  1          MODE
+
+; Reset	RST_MR: Master reset on board (use in serial mode)
+;   		RST_ICSP: Reset from out 10 (Arduino ICSP programmer)
+PIN  2          /RST_MR
+PIN  3          /RST_ICSP
+
+; TXD Output pin from FT232
+;  			In serial mode, send to ZIF socket
+; 			In ICSP mode, send to ARDUINO ICSP programmer
+PIN  4					TXD
+
+; RXD Inputs
+; 			In serial mode, send from socket to FT232
+; 			In ICSP mode, send from ARDUINO to FT232
+PIN  5					RXD_SER									COMBINATORIAL
+PIN  6					RXD_ICSP								COMBINATORIAL
+
+PIN  19     		MODE_SER								REGISTERED
+
+PIN  18					/SCK_RST								COMBINATORIAL
+PIN  17 				/ICSP_RST								COMBINATORIAL
+
+PIN  16					TXD_SER									COMBINATORIAL
+PIN  15					TXD_ICSP								COMBINATORIAL
+
+PIN  14					RXD_OUT									COMBINATORIAL
+
+PIN  13					LED_SER									COMBINATORIAL
+PIN  12					LED_ICSP								COMBINATORIAL
+
+;----------------------------------- Boolean Equation Segment ------
+EQUATIONS
+
+MODE_SER := /MODE_SER
+
+SCK_RST = RST_MR + RST_ICSP
+ICSP_RST = MODE_SER + (/MODE_SER * RST_MR) 
+
+TXD_SER = TXD
+TXD_SER.TRST = MODE_SER
+TXD_ICSP = TXD
+TXD_ICSP.TRST = /MODE_SER
+
+RXD_OUT = (/MODE_SER * RXD_ICSP) + (MODE_SER * RXD_SER)
+
+LED_SER = MODE_SER
+LED_ICSP = /MODE_SER
+
+;----------------------------------- Simulation Segment ------------
+SIMULATION
+
+TRACE_ON MODE_SER LED_SER LED_ICSP RST_MR RST_ICSP SCK_RST ICSP_RST TXD TXD_SER TXD_ICSP RXD_SER RXD_ICSP RXD_OUT 
+
+CLOCKF MODE
+
+SETF /RST_MR /RST_ICSP
+SETF RST_MR /RST_ICSP
+SETF /RST_MR RST_ICSP
+SETF RST_MR RST_ICSP
+
+CLOCKF MODE
+
+SETF /RST_MR /RST_ICSP
+SETF RST_MR /RST_ICSP
+SETF /RST_MR RST_ICSP
+SETF RST_MR RST_ICSP
+
+CLOCKF MODE
+SETF /TXD
+SETF TXD
+
+CLOCKF MODE
+SETF /TXD
+SETF TXD
+
+;-------------------------------------------------------------------
