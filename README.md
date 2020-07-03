@@ -23,14 +23,18 @@ Features
 	- ICSP Programming
 		- Compatible with _Arduino as ISP_ programmer in Arduino interface
 	- Toggle Serial/ICSP mode with pushbutton switch
+- USB-B port 
 
 Notes
 ============
 
 Images
 ============
-### PCB Render
-![PCB Render](./img/top-render.jpg "PCB Render")
+PCB Render                                          |  Real PCB
+:--------------------------------------------------:|:---------------------------------------------:
+![Render Top](./img/render-top.jpg "Render Top")    | ![Real Top](./img/real-top.jpg "Real Top")
+:--------------------------------------------------:|:---------------------------------------------:
+![Render Back](./img/render-back.jpg "Render Back") | ![Real Back](./img/real-back.jpg "Real Back")
 
 ### Schematics (pdf)
 - [Complete schematics](./img/schema.pdf)
