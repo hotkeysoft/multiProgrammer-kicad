@@ -3,6 +3,7 @@ Rev A August 2019
 
 Features
 ============
+- USB-B port
 - Sockets for direct programming:
 	- ATMEGA328P TQFP 32 (via adapter)
 	- ATMEGA328P DIP 28 pins
@@ -12,21 +13,23 @@ Features
 	- Serial Header:
 		- 5 pins 2.54mm
 	- SPI Headers (too many):
-		- ICSP 2.54mm (99% of use)
-		- ICSP 1.27mm
-		- MICRO-JST 1.25mm
-		- Tag-Connect (less than useful, since there are no two-ended 
-			Tag-Connect cables. Will be removed in future revisions)
+		- 2x3 pins 2.54mm (99% of use)
+		- 2x3 pins 1.27mm
+		- 1x6 pins 1.25mm (micro-JST)
+		- Tag-Connect (mostly useless, since there are no two-ended 
+		  Tag-Connect cables. Will be removed in future revisions)
 - Two programming modes:
 	- Serial passtrough
 		- Useful to programm chips with Arduino bootloader, or for any USB<->Serial adapter needs
 	- ICSP Programming
 		- Compatible with _Arduino as ISP_ programmer in Arduino interface
 	- Toggle Serial/ICSP mode with pushbutton switch
-- USB-B port 
 
 Notes
 ============
+- _ATmega328P_ running _ArduinoISP_
+- _555_ Used for Mode switch debouncing (old school)
+- _PALCE16V8_ for mode switching logic (LEDs, pin routing) [source](PLD/TTLSW.PDS) 
 
 Images
 ============
@@ -42,3 +45,9 @@ Images
 ### PCB Images (svg)
 - [Top](./img/pcb-front.svg)
 - [Bottom](./img/pcb-back.svg)
+
+Future
+============
+- Try to combine 555 and programmable logic on Arduino
+- Remove useless connectors
+- Save mode in EEPROM so it is remembered on next power-up
