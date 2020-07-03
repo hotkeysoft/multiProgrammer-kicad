@@ -31,15 +31,10 @@ Notes
 Images
 ============
 
-###Top
-|PCB Render                                         |  Real PCB                                   |
-|---------------------------------------------------|---------------------------------------------|
-|![Render Top](./img/render-top.jpg "Render Top")   |![Real Top](./img/real-top.jpg "Real Top")   |
-
-###Back
-|PCB Render                                         |  Real PCB                                   |
-|---------------------------------------------------|---------------------------------------------|
-|![Render Back](./img/render-back.jpg "Render Back")|![Real Back](./img/real-back.jpg "Real Back")|
+|Render                                                | Real PCB                                       |
+|------------------------------------------------------|------------------------------------------------|
+|![Render Front](./img/render-front.jpg "Render Front")|![Real Front](./img/real-front.jpg "Real Front")|
+|![Render Back](./img/render-back.jpg "Render Back")   |![Real Back](./img/real-back.jpg "Real Back")   |
 
 ### Schematics (pdf)
 - [Complete schematics](./img/schema.pdf)
