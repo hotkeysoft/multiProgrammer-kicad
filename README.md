@@ -3,7 +3,6 @@ Rev A August 2019
 
 Features
 ============
-- USB-B port
 - Sockets for direct programming:
 	- ATMEGA328P TQFP 32 (via adapter)
 	- ATMEGA328P DIP 28 pins
@@ -24,12 +23,20 @@ Features
 	- ICSP Programming
 		- Compatible with _Arduino as ISP_ programmer in Arduino interface
 	- Toggle Serial/ICSP mode with pushbutton switch
+- USB-B port (could be a downside but I am fond of them: they are sturdy)
 
 Notes
 ============
-- _ATmega328P_ running _ArduinoISP_
-- _555_ Used for Mode switch debouncing (old school)
-- _PALCE16V8_ for mode switching logic (LEDs, pin routing) [source](PLD/TTLSW.PDS) 
+- Socketed chips:
+	- _ATmega328P_ running _ArduinoISP_
+	- _555_ Used for Mode switch debouncing (old school)
+	- _PALCE16V8_ for mode switching logic (LEDs, pin routing) [source](PLD/TTLSW.PDS) 
+- Optional crystal socket, not needed for new chips (internal clock is used)
+ 	- Required for serial programming if the target is set to use an external crystal
+	  (Need to confirm if needed in SPI mode)
+- Boots in serial mode, be sure to switch mode to use SPI mode
+- Reset button resets the target chip (in both modes) and the _Arduino as ISP_ software
+- Don't put more than one target chip at a time (undefined behavior, no protection, might destroy the universe)
 
 Images
 ============
@@ -51,3 +58,5 @@ Future
 - Try to combine 555 and programmable logic on Arduino
 - Remove useless connectors
 - Save mode in EEPROM so it is remembered on next power-up
+- LEDs are too bright
+
